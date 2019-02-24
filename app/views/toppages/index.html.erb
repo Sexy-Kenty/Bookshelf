@@ -3,8 +3,12 @@
 <div class="cover">
     <div class="cover-inner">
         <div class="cover-contents">
-        <a herf="" class="btn btn-success btn-lg">本棚を作る</a>
 
+<% unless logged_in? %>
+
+        <%= link_to '本棚を作る', signup_path, class: 'btn btn-success btn-lg' %>
+        
+<% end %>
         </div>
     </div>
 </div>
