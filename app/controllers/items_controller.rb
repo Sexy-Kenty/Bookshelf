@@ -10,36 +10,14 @@ class ItemsController < ApplicationController
       })
 
       results.each do |result|
-        item = Item.new(read(result))
+        item = Item.find_or_initialize_by(read(result))
         @items << item
       end
     end
   end
   
-   def create
-    @item = Item.find_or_initialize_by(isbn: params[:isbn])
-
-    unless @item.persisted?
-      results = RakutenWebService::Books::Book.search(isbn: @item.isbn)
-      @item = Item.new(read(results.first))
-      @item.save
-    end
-   end
-
-private
-
-  def read(result)
-    title = result['title']
-    url = result['itemUrl']
-    isbn = result['isbn']
-    image_url = result['mediumImageUrl'].gsub('?_ex=120x120', '')
-
-    {
-      title: title,
-      url: url,
-      isbn: isbn,
-      image_url: image_url,
-    }
-
+  def show
+  @item = Item.find(params[:id])
+  @have_users = @item.have_users
   end
 end
