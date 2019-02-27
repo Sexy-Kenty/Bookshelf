@@ -48,7 +48,9 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   database: bookshelf_production
   username: bookshelf
   password: <%= ENV['BOOKSHELF_DATABASE_PASSWORD'] %>
