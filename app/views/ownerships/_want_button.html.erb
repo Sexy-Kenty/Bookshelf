@@ -1,0 +1,25 @@
+<% if current_user.want?(item) %>
+
+<%= form_tag(ownership_path(item.id), method: :delete) do %>
+
+<%= hidden_field_tag :item_id, item.id %>
+
+<%= hidden_field_tag :type, 'Want' %>
+
+<%= submit_tag '読みたいリストから削除する', class: 'btn btn-success' %>
+
+<% end %>
+
+<% else %>
+
+<%= form_tag(ownerships_path) do %>
+
+<%= hidden_field_tag :isbn, item.isbn %>
+
+<%= hidden_field_tag :type, 'Want' %>
+
+<%= submit_tag '読みたいリストに入れる', class: 'btn btn-prymary' %>
+
+<% end %>
+
+<% end %>
