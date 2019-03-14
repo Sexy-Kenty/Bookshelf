@@ -13,6 +13,11 @@ class OwnershipsController < ApplicationController
       flash[:success] = '本棚に入れました'
     end
     
+    if params[:type] == 'Want'
+      current_user.want(@item)
+      flash[:success] = '読みたいリストに入れました'
+    end
+    
     redirect_back(fallback_location: root_path)
     
   end
@@ -23,6 +28,11 @@ class OwnershipsController < ApplicationController
     if params[:type] == 'Have'
       current_user.unhave(@item)
       flash[:success] = '本棚から取り出しました'
+    end
+    
+    if params[:type] == 'Want'
+      current_user.unwant(@item)
+      flash[:success] = '読みたいリストから削除しました'
     end
     
     redirect_back(fallback_location: root_path)
