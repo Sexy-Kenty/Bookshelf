@@ -15,7 +15,8 @@
               <% end %>
               <div class="buttons text-center">
                 <% if logged_in? %>
-                  <%= render 'ownerships/have_button', item: item %>
+                <span class="have"><%= render 'ownerships/have_button', item: item %></span>
+                 <span class="want"><%= render 'ownerships/want_button', item: item %></span>
                 <% end %>
               </div>
             </div>

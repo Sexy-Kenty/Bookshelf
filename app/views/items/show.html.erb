@@ -29,14 +29,27 @@
         </div>
         <div class="panel-body">
           
-<% @have_users.each do |user| %>
+           <% @have_users.each do |user| %>
 
-            
-<%= link_to user.name, user_path(user) %>
+           <%= link_to user.name, user_path(user) %>
+           
+           <% end %>
 
+        </div>
+      </div>
+    </div>
+    <div class="have-users">
+      <div class="panel panel-default">
+        <div class="panel-heading text-center">
+          読みたいリストに入れたユーザ
+        </div>
+        <div class="panel-body">
+          <% @want_users.each do |user| %>
           
-<% end %>
-
+          <%= link_to user.name, user_path(user) %>
+          
+          <% end %>
+          
         </div>
       </div>
     </div>

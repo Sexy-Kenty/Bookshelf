@@ -12,7 +12,7 @@ class User < ApplicationRecord
     has_many :have_items, through: :haves, source: :item
     
     has_many :wants
-    has_many :have_items, through: :wants, source: :item
+    has_many :want_items, through: :wants, source: :item
     
     
     def have(item)
