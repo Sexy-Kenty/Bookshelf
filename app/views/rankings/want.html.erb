@@ -1,4 +1,4 @@
-<h2>みんなが持っている本Top10</h2>
+<h2>みんなが読みたい本Top10</h2>
 <% if @items.present? %>
   <div class="row">
     <% @items.each_with_index do |item, index| %>
@@ -12,7 +12,7 @@
               <p class="item-title"><%= link_to item.title, item %></p>
               <div class="buttons text-center">
                 <% if logged_in? %>
-                  <%= render 'ownerships/have_button', item: item %>
+                  <%= render 'ownerships/want_button', item: item %>
                 <% end %>
               </div>
             </div>
