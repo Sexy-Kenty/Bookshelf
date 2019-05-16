@@ -1,18 +1,23 @@
 <% if users.present? %>
-  <!--ユーザー一覧-->
   <div class="row">
-    <% users.each do |user| %>
-      <div class>
-        <div class="col-md-4 col-xs-12">
-          <div class="users">
-            <%= image_tag user.picture.url, width:"100px" %>
-            <%= link_to user.name, user %>
+    <% @users.each do |user| %>
+      <div class="users">
+        <div class="col-md-3 col-sm-4 col-xs-12">
+          <div class="panel panel-default">
+            <div class="panel-heading text-center">
+<!--              <div class="user-profile">-->
+<!--                <div class="icon text-center">-->
+<!--                  <img src="<%#= gravatar_url(@users) %>" alt="" >-->
+<!--                </div>-->
+<!--            </div>-->
+            <div class="panel-body">
+              <div class="name text-center">
+                <%= link_to user.name, user_path(user) %>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     <% end %>
-  </div>
-  <!--ページネーション-->
-  <%= paginate users %>
-  </p><%= page_entries_info users %></p>
+    </div>
 <% end %>

@@ -32,6 +32,11 @@ gem 'jbuilder', '~> 2.5'
 #Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'ransack'
+gem 'kaminari'
+gem 'pry-byebug', group: :development
+
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

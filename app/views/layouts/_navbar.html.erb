@@ -20,6 +20,12 @@
                 <% end %>
             </li>
 
+            <li><%= link_to posts_path do %>
+                <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+                口コミ一覧
+              <% end %>
+            </li>
+
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                  <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
@@ -36,8 +42,13 @@
                 </li>
               </ul>
              </li>
-              
-              
+
+            <li><%= link_to users_path do %>
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                ユーザ一覧
+              <% end %>
+            </li>
+
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 <span class="gravatar">
