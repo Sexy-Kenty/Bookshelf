@@ -1,23 +1,21 @@
-<% if users.present? %>
-  <div class="row">
-    <% @users.each do |user| %>
-      <div class="users">
-        <div class="col-md-3 col-sm-4 col-xs-12">
-          <div class="panel panel-default">
-            <div class="panel-heading text-center">
-<!--              <div class="user-profile">-->
-<!--                <div class="icon text-center">-->
-<!--                  <img src="<%#= gravatar_url(@users) %>" alt="" >-->
-<!--                </div>-->
-<!--            </div>-->
-            <div class="panel-body">
-              <div class="name text-center">
-                <%= link_to user.name, user_path(user) %>
-              </div>
-            </div>
+
+<% if users.any? %>
+  <ul class="media-list">
+    <% users.each do |user| %>
+      <li class="media">
+        <div class="media-left">
+          <img class="media-object img-rounded" src="<%= gravatar_url(user, { size: 50 }) %>" alt="">
+        </div>
+        <div class="media-body">
+          <div>
+            <%= user.name %>
+          </div>
+          <div>
+            <p><%= link_to 'プロフィールを見る', user_path(user) %></p>
           </div>
         </div>
-      </div>
+      </li>
     <% end %>
-    </div>
+  </ul>
+  <%= paginate users %>
 <% end %>

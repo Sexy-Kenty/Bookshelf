@@ -13,6 +13,8 @@ class UsersController < ApplicationController
     @items = @user.items.uniq
     @count_have = @user.have_items.count
     @count_want = @user.want_items.count
+    @count_followings = @user.followings.count
+    @count_followers = @user.followers.count
   end
 
   def new
