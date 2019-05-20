@@ -2,10 +2,10 @@
 <%= form_for post do |f| %>
 
   <!--エラーメッセージ-->
-  <%= render 'layouts/error_messages', model: f.object %>
+  <%#= render 'layouts/error_messages', model: f.object %>
 
   <!--商品コードの送信-->
-  <%= f.hidden_field :product_id, { value: product.id} %>
+  <%= f.hidden_field :item_id, { value: item.id } %>
 
   <!-- タイトル -->
   <div class="form-group row">
@@ -33,13 +33,6 @@
     </div>
   </div>
 
-  <!-- 口コミ用画像 -->
-  <div class="form-group row">
-    <%= f.label :picture, '口コミ画像 ', class:'col-md-3 col-form-label' %>
-    <div class="col-md-9">
-      <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
-    </div>
-  </div>
 
   <!-- 確認ボタン -->
   <div class="form-group row justify-content-end">

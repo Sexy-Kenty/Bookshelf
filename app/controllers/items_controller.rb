@@ -22,5 +22,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @have_users = @item.have_users
     @want_users = @item.want_users
+    @post = Post.new
+    @posts = Post.where(item_id: @item.id)
   end
 end

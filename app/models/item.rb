@@ -13,4 +13,6 @@ class Item < ApplicationRecord
     has_many :wants 
     has_many :want_users, through: :wants, source: :user
 
+    has_many :posts
+
 end

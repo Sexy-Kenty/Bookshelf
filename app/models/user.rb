@@ -63,4 +63,7 @@ class User < ApplicationRecord
       self.followings.include?(other_user)
     end
 
+    #口コミ投稿
+    has_many :posts, dependent: :destroy
+
 end

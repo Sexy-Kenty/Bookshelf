@@ -21,6 +21,7 @@
     </div>
   </div>
 
+
   <div class="col-md-3 col-sm-6 col-xs-12">
     <div class="have-users">
       <div class="panel panel-default">
@@ -53,9 +54,16 @@
         </div>
       </div>
     </div>
-    
+
+
     <p class="text-center">
 <%= link_to '楽天ブックス詳細ページ', @item.url, target: '_blank' %>
 </p>
+
   </div>
+
+</div>
+<div>
+  <h2 class="mb-3">口コミ投稿する</h2>
+  <%= render 'posts/new_post', post: @post, item: @item %>
 </div>
