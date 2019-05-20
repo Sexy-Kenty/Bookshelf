@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'relationships/create'
-
-  get 'relationships/destroy'
-
   root to: 'toppages#index'
 
   get 'login', to: 'sessions#new'
@@ -20,6 +16,8 @@ Rails.application.routes.draw do
 
   resources :items, only: [:new, :show]
   resources :ownerships, only: [:create, :destroy]
+
+  resources :relationships, only: [:create, :destroy]
   
   get 'rankings/have', to: 'rankings#have'
   get 'rankings/want', to: 'rankings#want'

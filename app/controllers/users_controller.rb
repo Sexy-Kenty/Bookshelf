@@ -3,8 +3,9 @@ class UsersController < ApplicationController
 
 
   def index
-    @q = User.ransack(params[:q])
-    @users = @q.result(distinct: :true).page(params[:page]).per(9)
+    @users = User.all.page(params[:page])
+    # @q = User.ransack(params[:q])
+    # @users = @q.result(distinct: :true).page(params[:page]).per(9)
   end
   
   def show
@@ -38,7 +39,7 @@ class UsersController < ApplicationController
 
   def followers
     @user = User.find(params[:id])
-    @followers = @user.followers.page(params[:id])
+    @followers = @user.followers.page(params[:page])
     counts(@user)
   end
   
