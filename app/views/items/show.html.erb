@@ -63,6 +63,7 @@
   </div>
 
 </div>
+<%= render 'posts/posts', posts: @posts, user: @user %>
 <div>
   <h2 class="mb-3">口コミ投稿する</h2>
   <%= render 'posts/new_post', post: @post, item: @item %>

@@ -14,13 +14,15 @@ class PostsController < ApplicationController
 
   def create
     @item = Item.find(params[:post][:item_id])
+    @have_users = @item.have_users
+    @want_users = @item.want_users
     @post = current_user.posts.build(post_params)
     if @post.save
       flash[:success] = "口コミを投稿しました"
       redirect_to posts_path
     else
       flash.now[:danger] = "口コミの投稿に失敗しました"
-      render 'items/items'
+      render 'items/show'
     end
   end
 
