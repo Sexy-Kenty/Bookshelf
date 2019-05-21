@@ -4,6 +4,18 @@ class ItemsController < ApplicationController
   def new
     @items = []
 
+    @isbn = params[:isbn]
+    if @isbn.present?
+      results = RakutenWebService::Books::Book.search({
+          isbn: @isbn,
+          hits: 28,
+                                                      })
+      results.each do |result|
+        item = Item.find_or_initialize_by(read(result))
+        @items << item
+      end
+    end
+
     @title = params[:title]
     if @title.present?
       results = RakutenWebService::Books::Book.search({

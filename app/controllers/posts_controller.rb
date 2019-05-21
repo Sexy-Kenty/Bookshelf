@@ -15,7 +15,7 @@ class PostsController < ApplicationController
   def create
     @item = Item.find(params[:post][:item_id])
     @have_users = @item.have_users
-    @want_users = @item.want_users
+    @want_users = @item.want_usersZ
     @post = current_user.posts.build(post_params)
     if @post.save
       flash[:success] = "口コミを投稿しました"
